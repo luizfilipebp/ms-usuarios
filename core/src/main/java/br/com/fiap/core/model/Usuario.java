@@ -58,21 +58,21 @@ public class Usuario {
         this.email = email;
     }
 
-    private static Long validaIdUsuario(Long id) {
+    public static Long validaIdUsuario(Long id) {
         if (id == null || id <= 0) {
             throw new UsuarioInvalidoException("ID inválido");
         }
         return id;
     }
 
-    private static String validaEmailUsuario(String email) {
+    public static String validaEmailUsuario(String email) {
         if (email == null || email.isEmpty() || email.indexOf("@") == 0 || !email.contains("@") || !email.contains(".") || email.length() < 5 || email.length() > 50) {
             throw new UsuarioInvalidoException("Email inválido");
         }
         return email;
     }
 
-    private static String validaNomeUsuario(String nome) {
+    public static String validaNomeUsuario(String nome) {
         if (nome == null || nome.length() < 3 || nome.length() > 50) {
             throw new UsuarioInvalidoException("Nome inválido");
         }
