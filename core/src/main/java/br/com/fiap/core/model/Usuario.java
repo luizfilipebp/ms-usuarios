@@ -1,16 +1,31 @@
 package br.com.fiap.core.model;
 
 import br.com.fiap.core.exception.UsuarioInvalidoException;
+import br.com.fiap.core.model.enums.TipoUsuario;
 
 public class Usuario {
     private long id;
     private String nome;
     private String email;
+    private TipoUsuario tipoUsuario;
 
-    public Usuario(long id, String nome, String email) {
+    public Usuario(long id, String nome, String email, TipoUsuario tipoUsuario) {
         this.id = validaIdUsuario(id);
         this.nome = validaNomeUsuario(nome);
         this.email = validaEmailUsuario(email);
+        this.tipoUsuario = tipoUsuario;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public TipoUsuario getTipoUsuario() {
+        return tipoUsuario;
+    }
+
+    public void setTipoUsuario(TipoUsuario tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
     }
 
     public long getId() {
