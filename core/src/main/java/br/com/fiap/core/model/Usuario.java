@@ -8,12 +8,22 @@ public class Usuario {
     private String nome;
     private String email;
     private TipoUsuario tipoUsuario;
+    private boolean ativado;
 
-    public Usuario(long id, String nome, String email, TipoUsuario tipoUsuario) {
+    public Usuario(long id, String nome, String email, TipoUsuario tipoUsuario, boolean ativado) {
         this.id = validaIdUsuario(id);
         this.nome = validaNomeUsuario(nome);
         this.email = validaEmailUsuario(email);
         this.tipoUsuario = tipoUsuario;
+        this.ativado = ativado;
+    }
+
+    public boolean isAtivado() {
+        return ativado;
+    }
+
+    public void setAtivado(boolean ativado) {
+        this.ativado = ativado;                 
     }
 
     public void setId(long id) {
