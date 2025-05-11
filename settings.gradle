@@ -1,0 +1,8 @@
+rootProject.name = 'usuarios'
+include 'core'
+include 'infrastructure'
+include 'application'
+include 'application'
+include 'usecase'
+include 'application'
+
