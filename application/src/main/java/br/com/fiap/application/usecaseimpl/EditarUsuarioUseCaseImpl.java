@@ -13,7 +13,7 @@ public class EditarUsuarioUseCaseImpl implements EditarUsuarioUseCase {
     }
 
     @Override
-    public Usuario editarUsuario(Long id, Usuario usuario) throws Exception {
-        return editarUsuarioGateway.editar(Usuario.validaIdUsuario(id), usuario);
+    public Usuario editarUsuario(String email, Usuario usuario) throws Exception {
+        return editarUsuarioGateway.editar(Usuario.validaEmailUsuario(email), usuario);
     }
 }

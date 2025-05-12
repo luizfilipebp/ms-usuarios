@@ -4,16 +4,14 @@ import br.com.fiap.core.exception.UsuarioInvalidoException;
 import br.com.fiap.core.model.enums.TipoUsuario;
 
 public class Usuario {
-    private long id;
-    private String nome;
     private String email;
+    private String nome;
     private TipoUsuario tipoUsuario;
     private boolean ativado;
 
-    public Usuario(long id, String nome, String email, TipoUsuario tipoUsuario, boolean ativado) {
-        this.id = validaIdUsuario(id);
-        this.nome = validaNomeUsuario(nome);
+    public Usuario(String email, String nome,  TipoUsuario tipoUsuario, boolean ativado) {
         this.email = validaEmailUsuario(email);
+        this.nome = validaNomeUsuario(nome);
         this.tipoUsuario = tipoUsuario;
         this.ativado = ativado;
     }
@@ -26,20 +24,12 @@ public class Usuario {
         this.ativado = ativado;                 
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
     public TipoUsuario getTipoUsuario() {
         return tipoUsuario;
     }
 
     public void setTipoUsuario(TipoUsuario tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
-    }
-
-    public long getId() {
-        return id;
     }
 
     public String getNome() {
@@ -56,13 +46,6 @@ public class Usuario {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public static Long validaIdUsuario(Long id) {
-        if (id == null || id <= 0) {
-            throw new UsuarioInvalidoException("ID inválido");
-        }
-        return id;
     }
 
     public static String validaEmailUsuario(String email) {

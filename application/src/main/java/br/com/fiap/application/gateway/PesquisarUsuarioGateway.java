@@ -5,5 +5,5 @@ import br.com.fiap.core.model.Usuario;
 import java.util.Optional;
 
 public interface PesquisarUsuarioGateway {
-    Optional<Usuario> pesquisarPorId(Long id) throws Exception;
+    Optional<Usuario> pesquisarPorEmail(String email);
 }

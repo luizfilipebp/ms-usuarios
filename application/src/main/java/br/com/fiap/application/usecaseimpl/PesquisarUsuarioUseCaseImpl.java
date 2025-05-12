@@ -15,7 +15,7 @@ public class PesquisarUsuarioUseCaseImpl implements PesquisarUsuarioUseCase {
     }
 
     @Override
-    public Optional<Usuario> pesquisarUsuario(Long id) throws Exception {
-        return pesquisarUsuarioGateway.pesquisarPorId(Usuario.validaIdUsuario(id));
+    public Optional<Usuario> pesquisarUsuario(String email) throws Exception {
+        return pesquisarUsuarioGateway.pesquisarPorEmail(Usuario.validaEmailUsuario(email));
     }
 }

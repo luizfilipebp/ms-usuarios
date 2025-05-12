@@ -2,10 +2,7 @@ package br.com.fiap.infrastructure.entity;
 
 
 import br.com.fiap.core.model.enums.TipoUsuario;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -22,7 +19,8 @@ public class UsuarioEntity {
     @Column(name = "usu_email", unique = true, nullable = false, length = 50)
     private String email;
 
-    @Column(name = "usu_tipo", nullable = false, length = 25)
+    @Column(name = "usu_tipo_usuario", nullable = false, length = 25)
+    @Enumerated(EnumType.STRING)
     private TipoUsuario tipoUsuario;
 
     @Column(name = "usu_ativado", nullable = false)
