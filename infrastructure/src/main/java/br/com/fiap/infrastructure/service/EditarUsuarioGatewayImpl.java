@@ -21,6 +21,7 @@ public class EditarUsuarioGatewayImpl implements EditarUsuarioGateway {
                     existingUsuario.setNome(usuario.getNome());
                     existingUsuario.setEmail(usuario.getEmail());
                     existingUsuario.setTipoUsuario(usuario.getTipoUsuario());
+                    existingUsuario.setAtivado(usuario.isAtivado());
                     return usuarioRepository.save(existingUsuario);
                 })
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));

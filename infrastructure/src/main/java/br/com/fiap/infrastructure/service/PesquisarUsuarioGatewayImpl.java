@@ -17,8 +17,10 @@ public class PesquisarUsuarioGatewayImpl implements PesquisarUsuarioGateway {
     private final UsuarioRepository usuarioRepository;
 
     @Override
-    public Optional<Usuario> pesquisarPorEmail(String email) throws Exception {
-        UsuarioEntity usuario = usuarioRepository.findByEmail(email).orElseThrow(() -> new Exception("Usuário não encontrado"));
+    public Optional<Usuario> pesquisarPorEmail(String email){
+        UsuarioEntity usuario = usuarioRepository.findByEmail(email).isPresent()
+                ? usuarioRepository.findByEmail(email).get()
+                : null;
         return Optional.ofNullable(UsuarioMapper.INSTANCE.usuarioEntityToUsuario(usuario));
     }
 }

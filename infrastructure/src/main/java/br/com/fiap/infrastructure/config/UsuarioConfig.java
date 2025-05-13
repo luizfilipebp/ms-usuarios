@@ -23,13 +23,13 @@ public class UsuarioConfig {
     }
 
     @Bean
-    CadastrarUsuarioUseCase cadastrarUsuarioUseCase(CadastrarUsuarioGateway cadastrarUsuarioGateway) {
-        return new CadastrarUsuarioUseCaseImpl(cadastrarUsuarioGateway);
+    CadastrarUsuarioUseCase cadastrarUsuarioUseCase(CadastrarUsuarioGateway cadastrarUsuarioGateway, PesquisarUsuarioUseCase pesquisarUsuarioUseCase) {
+        return new CadastrarUsuarioUseCaseImpl(cadastrarUsuarioGateway, pesquisarUsuarioUseCase);
     }
 
     @Bean
-    DesativarUsuarioUseCase desativarUsuarioUseCase(PesquisarUsuarioGateway pesquisarUsuarioGateway, EditarUsuarioGateway editarUsuarioGateway) {
-        return new DesativarUsuarioUseCaseImpl(pesquisarUsuarioGateway, editarUsuarioGateway);
+    DesativarUsuarioUseCase desativarUsuarioUseCase(PesquisarUsuarioGateway pesquisarUsuarioGateway, EditarUsuarioUseCase editarUsuarioUseCase) {
+        return new DesativarUsuarioUseCaseImpl(pesquisarUsuarioGateway, editarUsuarioUseCase);
     }
 
     @Bean

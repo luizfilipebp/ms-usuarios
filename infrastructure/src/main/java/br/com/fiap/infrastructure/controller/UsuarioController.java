@@ -3,6 +3,7 @@ package br.com.fiap.infrastructure.controller;
 
 import br.com.fiap.core.model.Usuario;
 import br.com.fiap.infrastructure.dto.UsuarioPostReqBody;
+import br.com.fiap.infrastructure.dto.UsuarioPutReqBody;
 import br.com.fiap.infrastructure.mapper.UsuarioMapper;
 import br.com.fiap.usecase.CadastrarUsuarioUseCase;
 import br.com.fiap.usecase.DesativarUsuarioUseCase;
@@ -25,11 +26,7 @@ public class UsuarioController {
 
     @PostMapping
     public ResponseEntity<Usuario> cadastrar(@RequestBody @Valid UsuarioPostReqBody usuario) throws Exception {
-
-        Usuario usu = UsuarioMapper.INSTANCE.usuarioPostReqBodyToUsuario(usuario);
-
-
-        return ResponseEntity.ok(cadastrarUsuarioUseCase.cadastrar(usu));
+        return ResponseEntity.ok(cadastrarUsuarioUseCase.cadastrar(UsuarioMapper.INSTANCE.usuarioPostReqBodyToUsuario(usuario)));
     }
 
     @GetMapping("/{email}")
@@ -46,7 +43,7 @@ public class UsuarioController {
     }
 
     @PutMapping("/{email}")
-    public ResponseEntity<Usuario> editar(@PathVariable String email, @RequestBody Usuario usuario) throws Exception {
-        return ResponseEntity.ok(editarUsuarioUseCase.editarUsuario(email, usuario));
+    public ResponseEntity<Usuario> editar(@RequestBody UsuarioPutReqBody usuario) throws Exception {
+        return ResponseEntity.ok(editarUsuarioUseCase.editarUsuario(Usuario.validaEmailUsuario(usuario.email()), UsuarioMapper.INSTANCE.usuarioPutReqBodyToUsuario(usuario)));
     }
 }
