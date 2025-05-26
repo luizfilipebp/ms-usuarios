@@ -1,6 +1,7 @@
 spring:
+
   application:
-    name: ms-livros
+    name: ms-usuarios
 
   flyway:
     locations: classpath:migration
@@ -18,6 +19,7 @@ spring:
               physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
 
 server:
+  port: 8083
   tomcat:
     uri-encoding: UTF-8
   servlet:

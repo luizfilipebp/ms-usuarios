@@ -10,7 +10,7 @@ import lombok.Data;
 @Table(name = "usuario")
 public class UsuarioEntity {
     @Id
-    @Column(name = "usu_email", unique = true, nullable = false, length = 50)
+    @Column(name = "usu_email", length = 50)
     private String email;
 
     @Column(name = "usu_nome", nullable = false, length = 100)
