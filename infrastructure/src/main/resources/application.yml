@@ -7,16 +7,16 @@ spring:
     locations: classpath:migration
 
   datasource:
-      url: jdbc:postgresql://localhost:5433/usuarios
-      username: root
-      password: root
-      driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://db-usuarios:5432/usuarios
+    username: root
+    password: root
+    driver-class-name: org.postgresql.Driver
 
   jpa:
-      show-sql: true
-      hibernate:
-          naming:
-              physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
 
 server:
   port: 8083
@@ -34,3 +34,11 @@ springdoc:
   swagger-ui:
     enabled: true
     path: /swagger-ui.html
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://ms-discovery:8761/eureka/
+    instance:
+      prefer-ip-address: true

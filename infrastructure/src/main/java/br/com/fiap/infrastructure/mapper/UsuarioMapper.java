@@ -12,7 +12,6 @@ import org.mapstruct.factory.Mappers;
 public interface UsuarioMapper {
     UsuarioMapper INSTANCE = Mappers.getMapper(UsuarioMapper.class);
 
-    @Mapping(target = "email", source = "usuario.email")
     UsuarioEntity usuarioToUsuarioEntity(Usuario usuario);
     Usuario usuarioEntityToUsuario(UsuarioEntity usuarioEntity);
 

@@ -2,18 +2,26 @@ plugins {
 	id 'java'
 }
 
-group = 'br.com.fiap'
-version = '0.0.1-SNAPSHOT'
+group = 'br.com.fiap.infrastructure'
+version = '1.0-SNAPSHOT'
 
 repositories {
 	mavenCentral()
 }
 
 dependencies {
-	testImplementation platform('org.junit:junit-bom:5.9.1')
+	testImplementation platform('org.junit:junit-bom:5.10.0')
 	testImplementation 'org.junit.jupiter:junit-jupiter'
 }
 
 test {
 	useJUnitPlatform()
+}
+
+jar {
+	manifest {
+		attributes(
+				'Main-Class': 'br.com.fiap.infrastructure.MsUsuariosApplication'
+		)
+	}
 }
